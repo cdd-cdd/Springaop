@@ -13,11 +13,11 @@ public class App {
 		Camera camera = context.getBean("camera", Camera.class);
 		Lens lens = context.getBean("lens", Lens.class);
 		
-		camera.snap();
-		camera.snap(100);
-		camera.snap("able");
-		camera.snapNighttime();
-		lens.zoom(2);
+		try {
+			camera.snap();
+		} catch (Exception e) {
+			System.out.println("Cought exception :" + e.getMessage());
+		}
 		context.close();
 
 	}
