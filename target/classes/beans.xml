@@ -20,6 +20,6 @@
     <context:component-scan base-package="com.able.spring.aop"></context:component-scan>
     <context:component-scan base-package="com.able.spring.camera.accessories"></context:component-scan>
 
-    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    <aop:aspectj-autoproxy proxy-target-class="false"></aop:aspectj-autoproxy>
 
 </beans>
