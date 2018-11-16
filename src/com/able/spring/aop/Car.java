@@ -3,6 +3,7 @@ package com.able.spring.aop;
 import org.springframework.stereotype.Component;
 
 @Component
+@Deprecated
 public class Car {
 
 	public void start() {

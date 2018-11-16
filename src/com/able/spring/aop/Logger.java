@@ -1,5 +1,6 @@
 package com.able.spring.aop;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -13,42 +14,96 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class Logger {
-
-	//this one matching nothing
-	//@Pointcut("within(com.able.spring..*)")
 	
-	@Pointcut("within(com.able.spring..*)")
-	public void withinDemo() {
-		
-	}
-	
-	//this work as well
-	@Pointcut("target(com.able.spring.aop.ICamera)")
-	//@Pointcut("target(com.able.spring.aop.Camera)")
-	public void targetDemo() {
-		
-	}
-	
-	@Pointcut("this(com.able.spring.aop.ICamera)")
-	public void thisDemo() {
+/*	@Pointcut("within(@Deprecated com.able.spring..*)")
+	public void somePointcut() {
 		
 	}
 
-	@Before("withinDemo()")
-	public void withinDemoAdvice() {
-		System.out.println("**************Before advice ...");
+	@Before("somePointcut()")
+	public void somePointcutDemo() {
+		System.out.println("**************Before demo ...");
+	}*/
+	
+/*	@Pointcut("within(@org.springframework.stereotype.Component com.able.spring..*)")
+	public void somePointcut() {
+		
+	}
+
+	@Before("somePointcut()")
+	public void somePointcutDemo() {
+		System.out.println("**************Before demo ...");
+	}*/
+	
+/*	@Pointcut("@target(org.springframework.stereotype.Component)")
+	public void somePointcut() {
+		
+	}
+
+	@Before("somePointcut()")
+	public void somePointcutDemo() {
+		System.out.println("**************Before demo ...");
+	}*/
+	
+/*	@Pointcut("@args(org.springframework.stereotype.Component)")
+	public void somePointcut() {
+		
 	}
 	
-	@Before("targetDemo()")
-	public void targetDemoAdvice() {
-		System.out.println("**************Target advice ...");
+	@Before("somePointcut()")
+	public void somePointcutDemo() {
+		System.out.println("**************Before demo ...");
+	}*/
+	
+/*	@Pointcut("@args(java.lang.Deprecated)")
+	public void somePointcut() {
+		
 	}
 	
-	@Before("targetDemo()")
-	public void thisDemoAdvice() {
-		System.out.println("**************This advice ...");
+	@Before("somePointcut()")
+	public void somePointcutDemo() {
+		System.out.println("**************Before demo ...");
+	}*/
+	
+/*	@Pointcut("bean(c*)")
+	public void somePointcut() {
+		
 	}
 	
+	@Before("somePointcut()")
+	public void somePointcutDemo() {
+		System.out.println("**************Before demo ...");
+	}*/
+	
+	
+	//********************************************************************************
+/*	@Pointcut("args(..)")
+	public void somePointcut() {
+		
+	}
+	
+	@Before("somePointcut()")
+	public void somePointcutDemo() {
+		System.out.println("**************Before demo ...");
+	}*/
+	
+	//******************************************************************************
+	@Pointcut("args(..)")
+	public void somePointcut() {
+		
+	}
+	
+	@Before("somePointcut()")
+	public void somePointcutDemo(JoinPoint jp) {
+		System.out.println("**************Before demo ...");
+		
+		for (Object obj : jp.getArgs()) {
+			System.out.println("ARG:" + obj);
+			
+		}
+	}
+	
+
 
 
 	
