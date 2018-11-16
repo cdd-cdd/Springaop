@@ -14,7 +14,7 @@ public class App {
 		System.out.println("Class of camera bean :" + obj.getClass());
 		System.out.println(obj instanceof Camera);*/
 		
-		Camera camera = context.getBean("camera", Camera.class);
+		ICamera camera = context.getBean("camera", ICamera.class);
 		
 		Car car = context.getBean("car", Car.class);
 		 car.start();
